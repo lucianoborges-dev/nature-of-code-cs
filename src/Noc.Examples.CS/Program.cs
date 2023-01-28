@@ -1,4 +1,47 @@
-﻿
+﻿using Microsoft.Extensions.DependencyInjection;
 using Noc.Examples.CS;
+using Noc.Examples.CS.Ch01.Vectors.Noc101;
+using Noc.Examples.CS.Ch01.Vectors.Noc102;
+using Noc.Examples.CS.Ch01.Vectors.Noc103;
+using Noc.Examples.CS.Ch01.Vectors.Noc104;
+using Noc.Examples.CS.Ch01.Vectors.Noc105;
+using Noc.Examples.CS.Ch01.Vectors.Noc106;
+using Noc.Examples.CS.Ch01.Vectors.Noc107;
+using Noc.Examples.CS.Ch01.Vectors.Noc111;
+using Noc108 = Noc.Examples.CS.Ch01.Vectors.Noc108;
+using Noc109 = Noc.Examples.CS.Ch01.Vectors.Noc109;
+using Noc110 = Noc.Examples.CS.Ch01.Vectors.Noc110;
+using Noc111 = Noc.Examples.CS.Ch01.Vectors.Noc111;
 
-new MonogameSample().Run();
+var serviceProvider = new ServiceCollection()
+    .AddSingleton<MonogameSample>()
+    .AddSingleton<BouncingBallNoVectors>()
+    .AddSingleton<BouncingBallVectors>()
+    .AddSingleton<BouncingBallVectorsObject>()
+    .AddSingleton<VectorSubtraction>()
+    .AddSingleton<VectorMultiplication>()
+    .AddSingleton<VectorMagnitude>()
+    .AddSingleton<VectorNormalize>()
+    .AddSingleton<Motion101>()
+    .AddSingleton<Noc108.Motion101Acceleration>()
+    .AddSingleton<Noc109.Motion101Acceleration>()
+    .AddSingleton<Noc110.Motion101Acceleration>()
+    .AddSingleton<Noc111.Motion101AccelerationArray>()
+    .BuildServiceProvider();
+
+using var game = serviceProvider.GetRequiredService<Motion101AccelerationArray>();
+game.Run();
+
+
+
+// Scrutor
+
+//Assembly.GetExecutingAssembly()
+//    .GetTypes()
+//    .Where(a =>!a.IsAbstract && a.BaseType  == typeof(Sketch))
+//    .Select(a => new { assignedType = a, serviceTypes = a.GetInterfaces().ToList() })
+//    .ToList()
+//    .ForEach(typesToRegister =>
+//    {
+//        typesToRegister.serviceTypes.ForEach(typeToRegister => services.AddScoped(typeToRegister, typesToRegister.assignedType));
+//    });
