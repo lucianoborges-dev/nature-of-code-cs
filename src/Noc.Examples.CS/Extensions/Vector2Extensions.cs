@@ -44,4 +44,14 @@ public static class Vector2Extensions
         vector.X = (float)Math.Cos(angle) * length;
         vector.Y = (float)Math.Sin(angle) * length;
     }
+
+    /// <summary>
+    /// Create a copy of the Vector
+    /// </summary>
+    /// <param name="vector"></param>
+    /// <returns>A copy instace of the Vector</returns>
+    public static Vector2 Copy(this Vector2 vector)
+    {
+        return new Vector2(vector.X, vector.Y);
+    }
 }

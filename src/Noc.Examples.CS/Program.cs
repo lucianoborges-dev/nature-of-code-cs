@@ -16,6 +16,7 @@ using Noc201 = Noc.Examples.CS.Ch02.Forces.Noc201;
 using Noc202 = Noc.Examples.CS.Ch02.Forces.Noc202;
 using Noc203 = Noc.Examples.CS.Ch02.Forces.Noc203;
 using Noc204 = Noc.Examples.CS.Ch02.Forces.Noc204;
+using Noc205 = Noc.Examples.CS.Ch02.Forces.Noc205;
 
 var serviceProvider = new ServiceCollection()
     .AddSingleton<MonogameSample>()
@@ -36,10 +37,11 @@ var serviceProvider = new ServiceCollection()
     .AddSingleton<Noc202.Forces>()
     .AddSingleton<Noc203.Forces>()
     .AddSingleton<Noc204.ForcesFriction>()
+    .AddSingleton<Noc205.ForcesDrag>()
 
     .BuildServiceProvider();
 
-using var game = serviceProvider.GetRequiredService<Noc204.ForcesFriction>();
+using var game = serviceProvider.GetRequiredService<Noc205.ForcesDrag>();
 game.Run();
 
 

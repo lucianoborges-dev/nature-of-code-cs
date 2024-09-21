@@ -14,6 +14,7 @@ internal abstract class Sketch : Game
 
     protected Vector2 MousePosition;
     protected SpriteBall SpriteBall;
+    protected SpriteRect SpriteRect;
 
     protected Sketch()
     {
@@ -34,6 +35,7 @@ internal abstract class Sketch : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         SpriteBall = new SpriteBall(_spriteBatch);
+        SpriteRect = new SpriteRect(_spriteBatch);
     }
 
     protected override void Update(GameTime gameTime)
