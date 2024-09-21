@@ -21,8 +21,10 @@ https://www.monogame.net
 
 [Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=MonoGame.MonoGame-Templates-CSharp)   
 
+[MGCB Editor for Mac](https://www.nuget.org/packages/dotnet-mgcb-editor-mac)  
+[MGCB Editor for Linux](https://www.nuget.org/packages/dotnet-mgcb-editor-linux)  
 [MGCB Editor for Windows](https://www.nuget.org/packages/dotnet-mgcb-editor-windows)
-![MGCB Editor for Windows](mgcb-editor.png)
+![MGCB Editor](mgcb-editor.png)
 
 --- 
 

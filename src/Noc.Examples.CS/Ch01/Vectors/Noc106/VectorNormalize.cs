@@ -36,7 +36,7 @@ internal class VectorNormalize : Sketch
         // Normalize the vector
         _mouse.Normalize();
 
-        // Multiply its length by 50
+        // Multiply its length by 150
         _mouse *= 150f;
 
         // Unlike html5 canvas, we can not translate and start drawing from (0, 0)
@@ -47,5 +47,6 @@ internal class VectorNormalize : Sketch
     protected override void ExecuteDraw(GameTime gameTime)
     {
         _spriteBatch.DrawLine(_center, _mouse, Color.White, 2f);
+
     }
 }

@@ -32,10 +32,12 @@ internal class Mover
         _acceleration = Vector2.Subtract(mousePosition, _position);
 
         // Set magnitude of acceleration
-        Vector2Helper.SetMagnitude(ref _acceleration, 0.2f);
+        //Vector2Helper.SetMagnitude(ref _acceleration, 0.2f);
+        _acceleration.SetMagnitude(0.2f);
 
         _velocity += _acceleration;
-        Vector2Helper.Limit(ref _velocity, TopSpeed);
+        //Vector2Helper.Limit(ref _velocity, TopSpeed);
+        _velocity.Limit(TopSpeed);
 
         _position += _velocity;
     }

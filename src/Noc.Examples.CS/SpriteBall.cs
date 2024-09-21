@@ -9,7 +9,7 @@ public sealed class SpriteBall
     private readonly Color _fillCollor = new(175, 175, 175);
     private readonly Color _strokeCollor = Color.Black;
     private readonly SpriteBatch _spriteBatch;
-    private readonly Texture2D _ball;
+
     public SpriteBall(SpriteBatch spriteBatch)
     {
         _spriteBatch = spriteBatch;
@@ -22,7 +22,13 @@ public sealed class SpriteBall
 
     public void Draw(Vector2 position)
     {
-        _spriteBatch.DrawCircle(position, 24, 30, _fillCollor, 24f);
-        _spriteBatch.DrawCircle(position, 24, 30, _strokeCollor, 1f);
+        _spriteBatch.DrawCircle(position, 24f, 30, _fillCollor, 24f);
+        _spriteBatch.DrawCircle(position, 24f, 30, _strokeCollor, 1f);
+    }
+
+    public void Draw(Vector2 position, float radius)
+    {
+        _spriteBatch.DrawCircle(position, 12f * radius, 30, _fillCollor, 12f * radius);
+        _spriteBatch.DrawCircle(position, 12f * radius, 30, _strokeCollor, 1f);
     }
 }

@@ -33,7 +33,8 @@ internal class Mover
     public void Update()
     {
         _velocity += _acceleration;
-        Vector2Helper.Limit(ref _velocity, TopSpeed);
+        //Vector2Helper.Limit(ref _velocity, TopSpeed);
+        _velocity.Limit(TopSpeed);
         _position += _velocity;
     }
 
