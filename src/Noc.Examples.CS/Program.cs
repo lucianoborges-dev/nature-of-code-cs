@@ -1,59 +1,40 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Noc.Examples.CS;
-using Noc.Examples.CS.Ch01.Vectors.Noc101;
-using Noc.Examples.CS.Ch01.Vectors.Noc102;
-using Noc.Examples.CS.Ch01.Vectors.Noc103;
-using Noc.Examples.CS.Ch01.Vectors.Noc104;
-using Noc.Examples.CS.Ch01.Vectors.Noc105;
-using Noc.Examples.CS.Ch01.Vectors.Noc106;
-using Noc.Examples.CS.Ch01.Vectors.Noc107;
-using Noc108 = Noc.Examples.CS.Ch01.Vectors.Noc108;
-using Noc109 = Noc.Examples.CS.Ch01.Vectors.Noc109;
-using Noc110 = Noc.Examples.CS.Ch01.Vectors.Noc110;
-using Noc111 = Noc.Examples.CS.Ch01.Vectors.Noc111;
+﻿using Microsoft.Xna.Framework;
+using Chapter1 = Noc.Examples.CS.Ch01;
+using Chapter2 = Noc.Examples.CS.Ch02;
 
-using Noc201 = Noc.Examples.CS.Ch02.Forces.Noc201;
-using Noc202 = Noc.Examples.CS.Ch02.Forces.Noc202;
-using Noc203 = Noc.Examples.CS.Ch02.Forces.Noc203;
-using Noc204 = Noc.Examples.CS.Ch02.Forces.Noc204;
-using Noc205 = Noc.Examples.CS.Ch02.Forces.Noc205;
+static void RunExample(string sample)
+{
+    Game game = sample switch
+    {
+        // Chapter 1
+        "Noc101" => new Chapter1.Vectors.Noc101.BouncingBallNoVectors(),
+        "Noc102" => new Chapter1.Vectors.Noc102.BouncingBallVectors(),
+        "Noc103" => new Chapter1.Vectors.Noc103.VectorSubtraction(),
+        "Noc104" => new Chapter1.Vectors.Noc104.VectorMultiplication(),
+        "Noc105" => new Chapter1.Vectors.Noc105.VectorMagnitude(),
+        "Noc106" => new Chapter1.Vectors.Noc106.VectorNormalize(),
+        "Noc107" => new Chapter1.Vectors.Noc107.Motion101(),
+        "Noc108" => new Chapter1.Vectors.Noc108.Motion101Acceleration(),
+        "Noc109" => new Chapter1.Vectors.Noc109.Motion101Acceleration(),
+        "Noc110" => new Chapter1.Vectors.Noc110.Motion101Acceleration(),
+        "Noc111" => new Chapter1.Vectors.Noc111.Motion101AccelerationArray(),
 
-var serviceProvider = new ServiceCollection()
-    .AddSingleton<MonogameSample>()
-    .AddSingleton<BouncingBallNoVectors>()
-    .AddSingleton<BouncingBallVectors>()
-    .AddSingleton<BouncingBallVectorsObject>()
-    .AddSingleton<VectorSubtraction>()
-    .AddSingleton<VectorMultiplication>()
-    .AddSingleton<VectorMagnitude>()
-    .AddSingleton<VectorNormalize>()
-    .AddSingleton<Motion101>()
-    .AddSingleton<Noc108.Motion101Acceleration>()
-    .AddSingleton<Noc109.Motion101Acceleration>()
-    .AddSingleton<Noc110.Motion101Acceleration>()
-    .AddSingleton<Noc111.Motion101AccelerationArray>()
+        // Chapter 2
+        "Noc201" => new Chapter2.Forces.Noc201.Forces(),
+        "Noc202" => new Chapter2.Forces.Noc202.Forces(),
+        "Noc203" => new Chapter2.Forces.Noc203.Forces(),
+        "Noc204" => new Chapter2.Forces.Noc204.ForcesFriction(),
+        "Noc205" => new Chapter2.Forces.Noc205.ForcesDrag(),
+        "Noc206" => new Chapter2.Forces.Noc206.Attraction(),
+        "Noc207" => new Chapter2.Forces.Noc207.AttractionMany(),
+        "Noc208" => new Chapter2.Forces.Noc208.MutualAttraction(),
 
-    .AddSingleton<Noc201.Forces>()
-    .AddSingleton<Noc202.Forces>()
-    .AddSingleton<Noc203.Forces>()
-    .AddSingleton<Noc204.ForcesFriction>()
-    .AddSingleton<Noc205.ForcesDrag>()
+        // A basic Monogame sample
+        _ => new Noc.Examples.CS.MonogameSample()
+    };
 
-    .BuildServiceProvider();
+    game.Run();
+}
 
-using var game = serviceProvider.GetRequiredService<Noc205.ForcesDrag>();
-game.Run();
-
-
-
-// Scrutor
-
-//Assembly.GetExecutingAssembly()
-//    .GetTypes()
-//    .Where(a =>!a.IsAbstract && a.BaseType  == typeof(Sketch))
-//    .Select(a => new { assignedType = a, serviceTypes = a.GetInterfaces().ToList() })
-//    .ToList()
-//    .ForEach(typesToRegister =>
-//    {
-//        typesToRegister.serviceTypes.ForEach(typeToRegister => services.AddScoped(typeToRegister, typesToRegister.assignedType));
-//    });
+// Run the example
+RunExample("Noc205");
